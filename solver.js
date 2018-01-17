@@ -28,8 +28,8 @@ function solveVolume(){
 
 function solveDensity(){
   assignElements();
-  if (!isNaN(dens) && !isNaN(m)){
-    dens = m*vol;
+  if (!isNaN(vol) && !isNaN(m)){
+    dens = m/vol;
     density.value = dens;
   }
   else{
