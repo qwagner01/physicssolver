@@ -1,11 +1,12 @@
 function solve(){
-  $("#bmass").on('click',solveMass);
-  $("#bvolume").on('click', solveVolume);
-  $("#bdensity").on('click', solveDensity);
+  assignElements();
+  solveMass();
+  solveVolume();
+  solveDensity();
 }
 
 function solveMass(){
-  assignElements();
+  // assignElements();
   if (!isNaN(dens) && !isNaN(vol)){
     m = dens/vol;
     mass.value = m;
@@ -16,7 +17,7 @@ function solveMass(){
 }
 
 function solveVolume(){
-  assignElements();
+  // assignElements();
   if (!isNaN(dens) && !isNaN(m)){
     vol = dens/m;
     volume.value = vol;
@@ -27,7 +28,7 @@ function solveVolume(){
 }
 
 function solveDensity(){
-  assignElements();
+  // assignElements();
   if (!isNaN(vol) && !isNaN(m)){
     dens = m/vol;
     density.value = dens;

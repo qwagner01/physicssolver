@@ -1,5 +1,5 @@
 var m;
-var vol
+var vol;
 var dens;
 // var Vxi;
 // var p;
@@ -8,7 +8,7 @@ $(document).ready(function() {
   // $('.property').on("change keyup", solve);
   // $('.property').val("");
   getElements();
-  solve();
+  $('#solve').on('click', solve)
 });
 
 function getElements(){
