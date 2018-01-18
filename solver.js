@@ -1,39 +1,34 @@
-function solve(){
-  assignElements();
-  solveMass();
-  solveVolume();
-  solveDensity();
-}
+function Object(m, vol, dens) {
+  this.m = m;
+  this.vol = vol;
+  this.dens = dens;
 
-function solveMass(){
-  // assignElements();
-  if (!isNaN(dens) && !isNaN(vol)){
-    m = dens/vol;
-    mass.value = m;
-  }
-  else{
-    return;
-  }
-}
+  this.log = console.log(this);
 
-function solveVolume(){
-  // assignElements();
-  if (!isNaN(dens) && !isNaN(m)){
-    vol = dens/m;
-    volume.value = vol;
+  this.solveMass = function() {
+    if (!isNaN(this.dens) && !isNaN(this.vol)) {
+      var ans = this.dens / this.vol;
+      return ans;
+    } else {
+      return;
+    }
   }
-  else{
-    return;
-  }
-}
 
-function solveDensity(){
-  // assignElements();
-  if (!isNaN(vol) && !isNaN(m)){
-    dens = m/vol;
-    density.value = dens;
+  this.solveVolume = function() {
+    if (!isNaN(this.dens) && !isNaN(this.m)) {
+      var ans = this.dens / this.m;
+      return ans;
+    } else {
+      return;
+    }
   }
-  else{
-    return;
+
+  this.solveDensity = function() {
+    if (!isNaN(this.vol) && !isNaN(this.m)) {
+      var ans = this.m / this.vol;
+      return ans;
+    } else {
+      return;
+    }
   }
 }
