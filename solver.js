@@ -1,11 +1,11 @@
 function Object(m, vol, dens, distX, velXa, Ftx, aX) {
-  this.m = m;
-  this.vol = vol;
-  this.dens = dens;
-  this.distX = distX;
-  this.velXa = velXa;
-  this.Ftx = Ftx;
-  this.aX = aX;
+  this.m = parseFloat(mass.value);
+  this.vol = parseFloat(volume.value);
+  this.dens = parseFloat(density.value);
+  this.distX = parseFloat(distanceX.value);
+  this.velXa = parseFloat(velocityXa.value);
+  this.Ftx = parseFloat(forceTotalX.value);
+  this.aX = parseFloat(accelerationX.value);
 
   this.solveMass = function() {
     var ans;

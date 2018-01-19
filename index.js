@@ -15,14 +15,7 @@ function getTime() {
 }
 
 function getObject1(){
-  var m = parseFloat(mass.value);
-  var vol = parseFloat(volume.value);
-  var dens = parseFloat(density.value);
-  var distX = parseFloat(distanceX.value);
-  var velXa = parseFloat(velocityXa.value);
-  var Ftx = parseFloat(forceTotalX.value);
-  var aX = parseFloat(accelerationX.value);
-  var obj = new Object(m, vol, dens, distX, velXa, Ftx, aX);
+  var obj = new Object(mass, volume, density, distanceX, velocityXa, forceTotalX, accelerationX);
   return obj;
 }
 
