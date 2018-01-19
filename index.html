@@ -3,41 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title> Physics Solver </title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <input type="text" class="property" id="mass"> mass </input>
-    <!-- <button class="solve" id="bmass"> Mass (Kg) </button> -->
-
-    <input type="text" class="property" id="volume"> volume </input>
-    <!-- <button class="solve" id="bvolume"> Volume (m<sup>3</sup>) </button> -->
-
-    <input type="text" class="property" id="density"> density </input>
-    <!-- <button class="solve" id="bdensity"> Density (Kg/m<sup>3</sup>) </button> -->
-
-    <!-- <input type="number" class="property" id="Ftx"></input> -->
-    <!-- <button class="solve" id="bFtx"> Total Force (N) </button> -->
-
-    <!-- <input type="text" class = "property" id="velocity_x_initial"></input> -->
-    <!-- <button class="solve" id="bVxi"> Velocity Xi (m/s) </button> -->
-
-    <!-- <input type="number" class = "property" id="time"></input> -->
-    <!-- <button class="solve" id="btime"> Time (Kg*m/s) </button> -->
-
-    <!-- <input type="number" class = "property" id="distanceX"></input> -->
-    <!-- <button class="solve" id="bdistance"> Distance X (m) </button> -->
-
-    <!-- <input type="number" class = "property" id="height"></input> -->
-    <!-- <button class="solve" id="bheight"> Height (m) </button> -->
-
-    <!-- <input type="text" class = "property" id="momentum"></input> -->
-    <!-- <button class="solve" id="bmomentum"> Momentum (Kg*m/s) </button> -->
-    <button id="solve"> Solve </button>
-
-
+    <div id="object1">
+    <h2 style="text-align: center;"> Object 1 </h2>
+    <input type="text" class="property" id="mass"> Mass (Kg) </input><br>
+    <input type="text" class="property" id="volume"> Volume </input><br>
+    <input type="text" class="property" id="density"> Density </input><br>
+    <input type="text" class="property" id="distanceX"> Distance X </input><br>
+    <input type="text" class="property" id="velocityXa"> Average Velocity X </input><br>
+    <input type="text" class="property" id="accelerationX"> Acceleration X </input><br>
+    <input type="text" class="property" id="forceTotalX"> Force Total X </input><br>
+    <button id="solve1"> Solve </button><br><br>
+    </div>
+    <input type="text" class="global" id="time"> time (s) </input>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- <script src="https://www.desmos.com/api/v1.0/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script> -->
     <script src="index.js"></script>
     <script src="solver.js"></script>
-
   </body>
 </html>
