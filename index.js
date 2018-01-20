@@ -15,17 +15,19 @@ function getTime() {
 }
 
 function getObject1(){
-  var obj = new Object(mass, volume, density, distanceX, velocityXa, forceTotalX, accelerationX);
+  var obj = new Object(mass, volume, density, distanceX,
+    velocityXi, velocityXf, velocityXa, forceTotalX, accelerationX);
   return obj;
 }
-
 
 function getElements() {
   var mass = document.getElementById('mass');
   var volume = document.getElementById('volume');
   var density = document.getElementById('density');
   var distanceX = document.getElementById('distanceX');
-  var velocityXa = document.getElementById('velocityXa')
+  var velocityXi = document.getElementById('velocityXi');
+  var velocityXf = document.getElementById('velocityXf');
+  var velocityXa = document.getElementById('velocityXa');
   var forceTotalX = document.getElementById('forceTotalX');
   var accelerationX = document.getElementById('accelerationX');
 }
@@ -45,7 +47,19 @@ function solve1() {
   if (isNaN(obj1.distX)) {
     distanceX.value = obj1.solveDistanceX(t);
   }
+  if (isNaN(obj1.velXi)) {
+    velocityXi.value = obj1.solveVelocityXi(t);
+  }
+  if (isNaN(obj1.velXf)) {
+    velocityXf.value = obj1.solveVelocityXf(t);
+  }
   if (isNaN(obj1.velXa)) {
     velocityXa.value = obj1.solveVelocityXa(t);
+  }
+  if (isNaN(obj1.aX)) {
+    accelerationX.value = obj1.solveAccelerationX(t);
+  }
+  if (isNaN(obj1.Ftx)) {
+    forceTotalX.value = obj1.solveForceTotalX();
   }
 }
