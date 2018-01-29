@@ -1,0 +1,20 @@
+{
+  "name": "physicssolver",
+  "version": "1.0.0",
+  "description": "This web app will solve physics problems",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwagner01/physicssolver.git"
+  },
+  "author": "Quinn Wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qwagner01/physicssolver/issues"
+  },
+  "homepage": "https://github.com/qwagner01/physicssolver#readme"
+}
