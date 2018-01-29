@@ -9,27 +9,37 @@ $(document).ready(function() {
 });
 
 function getTime() {
-  var time = document.getElementById('time');
+  var time = document.getElementById('time')
   var t = parseFloat(time.value);
   return t;
 }
 
 function getObject1(){
   var obj = new Object(mass, volume, density, distanceX,
-    velocityXi, velocityXf, velocityXa, forceTotalX, accelerationX);
+    velocityXi, velocityXf, velocityXa, forceTotalX, accelerationX,
+    heightI, heightF, distanceY, velocityYi, velocityYf, velocityYa,
+    forceTotalY, accelerationY);
   return obj;
 }
 
 function getElements() {
-  var mass = document.getElementById('mass');
-  var volume = document.getElementById('volume');
-  var density = document.getElementById('density');
-  var distanceX = document.getElementById('distanceX');
-  var velocityXi = document.getElementById('velocityXi');
-  var velocityXf = document.getElementById('velocityXf');
-  var velocityXa = document.getElementById('velocityXa');
-  var forceTotalX = document.getElementById('forceTotalX');
-  var accelerationX = document.getElementById('accelerationX');
+  var mass = $('#mass');
+  var volume = $('#volume');
+  var density = $('#density');
+  var distanceX = $('#distanceX');
+  var velocityXi = $('#velocityXi');
+  var velocityXf = $('#velocityXf');
+  var velocityXa = $('#velocityXa');
+  var forceTotalX = $('#forceTotalX');
+  var accelerationX = $('#accelerationX');
+  var heightI = $('#heightI');
+  var heightF = $('#heightF');
+  var distanceY = $('#distanceY');
+  var velocityYi = $('#velocityYi');
+  var velocityYf = $('#velocityYf');
+  var velocityYa = $('#velocityYa');
+  var forceTotalY = ('#forceTotalY');
+  var accelerationY = $('#accelerationY');
 }
 
 function solve1() {
@@ -61,5 +71,14 @@ function solve1() {
   }
   if (isNaN(obj1.Ftx)) {
     forceTotalX.value = obj1.solveForceTotalX();
+  }
+  if (isNaN(obj1.hI)){
+    heightI.value = obj1.solveHeightI(t);
+  }
+  if (isNaN(obj1.hF)){
+    heightF.value = obj1.solveHeightF(t);
+  }
+  if (isNaN(obj1.distY)){
+    distanceY.value = obj1.solveDistanceY(t);
   }
 }

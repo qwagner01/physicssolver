@@ -1,9 +1,18 @@
+ body {
+   background-color: #A1FFFF
+ }
+
 #object1{
   width: 50%;
-  background-color: #A1FFFF
+  float: left;
 }
 
-#solve1{
+#object2{
+  width: 50%;
+  display: inline;
+}
+
+.solve{
 	/* position:relative; */
 	width:200px;
 	color:#FFF;
@@ -25,7 +34,7 @@
         -moz-box-shadow: 0px 9px 0px #84261a;
         box-shadow: 0px 9px 0px #84261a;
 }
-#solve1:active{
+.solve:active{
     -webkit-box-shadow: 0px 2px 0px #84261a;
     -moz-box-shadow: 0px 2px 0px #84261a;
     box-shadow: 0px 2px 0px #84261a;
@@ -44,6 +53,15 @@
   font-size: 12px;
   text-decoration-color: #ffffff;
 }
-.global{
-  float: center;
+
+.property2{
+  background-repeat:repeat-x;
+	border:1px solid #d1c7ac;
+	width: 230px;
+	color:#333333;
+	padding:3px;
+	margin-right:4px;
+	margin-bottom:8px;
+  font-size: 12px;
+  text-decoration-color: #ffffff;
 }

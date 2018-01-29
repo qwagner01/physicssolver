@@ -1,4 +1,4 @@
-function Object(m, vol, dens, distX, velXi, velXf, velXa, Ftx, aX) {
+function Object(m, vol, dens, distX, velXi, velXf, velXa, Ftx, aX, hI, hF, distY, velYi, velYf, velYa, Fty, aY) {
   this.m = parseFloat(m.value);
   this.vol = parseFloat(vol.value);
   this.dens = parseFloat(dens.value);
@@ -8,6 +8,14 @@ function Object(m, vol, dens, distX, velXi, velXf, velXa, Ftx, aX) {
   this.velXa = parseFloat(velXa.value);
   this.Ftx = parseFloat(Ftx.value);
   this.aX = parseFloat(aX.value);
+  this.hI = parseFloat(hI.value);
+  this.hF = parseFloat(hF.value);
+  this.distY = parseFloat(distY.value);
+  this.velYi = parseFloat(velYi.value);
+  this.velYf = parseFloat(velYf.value);
+  this.velYa = parseFloat(velYa.value);
+  this.Fty = parseFloat(Fty.value);
+  this.aY = parseFloat(aY.value);
   this.msg = "Could Not Solve";
 
   this.solveMass = function() {
@@ -113,6 +121,51 @@ function Object(m, vol, dens, distX, velXi, velXf, velXa, Ftx, aX) {
       ans = this.m * this.aX;
       return ans;
     } else {
+      return this.msg;
+    }
+  }
+  this.solveHeightI = function(t){
+    var ans;
+    if (!isNaN(this.hF) && !isNaN(this.distY)){
+      ans = this.hF + this.distY;
+      return ans;
+    } else if (!isNaN(this.velYa) && !isNaN(this.hF) && !isNaN(t)){
+      ans = this.hF + (this.velYa * t);
+      return ans;
+  } else {
+    return this.msg;
+    }
+  }
+
+  this.solveHeightF = function(t){
+    var ans;
+    if (!isNaN(this.hI) && !isNaN(this.distY)) {
+      ans = this.hI - this.distY;
+      return ans;
+    } else if (!isNaN(this.velYa) && !isNaN(this.hI) && !isNaN(t)) {
+      ans = this.hI - (this.velYa * t);
+      return ans;
+    } else{
+      return this.msg;
+    }
+  }
+
+  this.solveDistanceY = function(t){
+    var ans;
+    if (!isNaN(this.hI) && !isNaN(this.hF)){
+      ans = this.hF - this.hI;
+      return ans;
+    } else if (!isNaN(this.velYa) && !isNaN(t)){
+      ans = this.velY * t;
+      return ans;
+    } else if (!isNaN(this.velYi) && !isNaN(this.velYf) && !isNaN(t)){
+      ans = (this.velYi + this.velYf)/2 * t;
+      return ans;
+    } else if (!isNaN(this.velYi) && !isNaN(this.aY) && !isNaN(t)){
+      ans = (this.velYi * t) + (.5 * this.aY * Math.pow(t, 2));
+      return ans;
+    }
+    else {
       return this.msg;
     }
   }
