@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/qwagner01/physicssolver/issues"
   },
-  "homepage": "https://github.com/qwagner01/physicssolver#readme"
+  "homepage": "https://github.com/qwagner01/physicssolver#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0"
+  }
 }
