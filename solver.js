@@ -18,6 +18,44 @@ function Object(m, vol, dens, distX, velXi, velXf, velXa, Ftx, aX, hI, hF, distY
   this.aY = parseFloat(aY.value);
   this.msg = "Could Not Solve";
 
+  this.solve = function(t) {
+    if (isNaN(this.m)) {
+      m.value = this.solveMass();
+    }
+    if (isNaN(this.vol)) {
+      vol.value = this.solveVolume();
+    }
+    if (isNaN(this.dens)) {
+      dens.value = this.solveDensity();
+    }
+    if (isNaN(this.distX)) {
+      distX.value = this.solveDistanceX(t);
+    }
+    if (isNaN(this.velXi)) {
+      velXi.value = this.solveVelocityXi(t);
+    }
+    if (isNaN(this.velXf)) {
+      velXf.value = this.solveVelocityXf(t);
+    }
+    if (isNaN(this.velXa)) {
+      velXa.value = this.solveVelocityXa(t);
+    }
+    if (isNaN(this.aX)) {
+      aX.value = this.solveAccelerationX(t);
+    }
+    if (isNaN(this.Ftx)) {
+      Ftx.value = this.solveForceTotalX();
+    }
+    if (isNaN(this.hI)){
+      hI.value = this.solveHeightI(t);
+    }
+    if (isNaN(this.hF)){
+      hF.value = this.solveHeightF(t);
+    }
+    if (isNaN(this.distY)){
+      distY.value = this.solveDistanceY(t);
+    }
+  }
   this.solveMass = function() {
     var ans;
     if (!isNaN(this.dens) && !isNaN(this.vol)) {
