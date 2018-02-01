@@ -35,7 +35,7 @@ function getTime() {
 }
 
 function getObject1() {
-  var obj = new Object(mass, volume, density, distanceX,
+  var obj = new Obj(mass, volume, density, distanceX,
     velocityXi, velocityXf, velocityXa, forceTotalX, accelerationX,
     heightI, heightF, distanceY, velocityYi, velocityYf, velocityYa,
     forceTotalY, accelerationY);
