@@ -17,6 +17,7 @@ function getElements() {
   var mass = $('#mass');
   var volume = $('#volume');
   var density = $('#density');
+  var launchAngle = $('#launchAngle');
   var distanceX = $('#distanceX');
   var velocityXi = $('#velocityXi');
   var velocityXf = $('#velocityXf');
@@ -33,7 +34,8 @@ function getElements() {
   var accelerationY = $('#accelerationY');
   var mass_2 = $('#mass_2');
   var volume_2 = $('#volume_2');
-  var density = $('#density_2');
+  var density_2 = $('#density_2');
+  var launchAngle_2 = $('#launchAngle_2');
   var distanceX_2 = $('#distanceX_2');
   var velocityXi_2 = $('#velocityXi_2');
   var velocityXf_2 = $('#velocityXf_2');
@@ -57,16 +59,16 @@ function getTime() {
 }
 
 function getObject1() {
-  var obj = new Obj(mass, volume, density, distanceX,
-    velocityXi, velocityXf, velocityXa, forceTotalX, accelerationX,
+  var obj = new Obj(mass, volume, density, launchAngle, distanceX,
+    velocityXi, velocityXf, velocityXa, accelerationX, forceTotalX,
     heightI, heightF, distanceY, velocityYi, velocityYf, velocityYa,
     forceTotalY, accelerationY);
   return obj;
 }
 
 function getObject2() {
-  var obj = new Obj(mass_2, volume_2, density_2, distanceX_2,
-    velocityXi_2, velocityXf_2, velocityXa_2, forceTotalX_2, accelerationX_2,
+  var obj = new Obj(mass_2, volume_2, density_2, launchAngle_2, distanceX_2,
+    velocityXi_2, velocityXf_2, velocityXa_2, accelerationX_2, forceTotalX_2,
     heightI_2, heightF_2, distanceY_2, velocityYi_2, velocityYf_2, velocityYa_2,
     forceTotalY_2, accelerationY_2);
   return obj;

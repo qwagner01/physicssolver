@@ -1,6 +1,6 @@
 class Obj {
 
-  constructor(m, vol, dens, distX, velXi, velXf, velXa, Ftx, aX, hI, hF, distY, velYi, velYf, velYa, Fty, aY) {
+  constructor(m, vol, dens, la, distX, velXi, velXf, velXa, aX, Ftx, hI, hF, distY, velYi, velYf, velYa, aY, Fty, ) {
     this.m = parseFloat(m.value);
     this.vol = parseFloat(vol.value);
     this.dens = parseFloat(dens.value);
@@ -30,6 +30,9 @@ class Obj {
       if (isNaN(this.dens)) {
         dens.value = this.solveDensity();
       }
+      if (isNaN(this.la)){
+        la.value = this.solveLaunchAngle();
+      }
       if (isNaN(this.distX)) {
         distX.value = this.solveDistanceX(t);
       }
@@ -56,6 +59,21 @@ class Obj {
       }
       if (isNaN(this.distY)) {
         distY.value = this.solveDistanceY(t);
+      }
+      if (isNaN(this.velYi)) {
+        velYi.value = this.solveVelocityYi(t);
+      }
+      if (isNaN(this.velYf)) {
+        velYf.value = this.solveVelocityYf(t);
+      }
+      if (isNaN(this.velYa)) {
+        velYa.value = this.solveVelocityYa(t);
+      }
+      if (isNaN(this.aY)) {
+        aY.value = this.solveAccelerationY(t);
+      }
+      if (isNaN(this.Fty)) {
+        Fty.value = this.solveForceTotalY();
       }
     }
 
@@ -91,6 +109,19 @@ class Obj {
       ans = this.msg;
     }
     return ans;
+  }
+
+  solveLaunchAngle() {
+    var ans;
+    if (!isNaN(this.velXi) && !isNaN(this.velYi)) {
+      ans = Math.atan(this.velYi / this.velXi);
+    } else if (!isNaN(this.velXi) && !isNaN(this.velTi)) {
+      ans = Math.acos(this.velXi / this.velTi);
+    } else if (!isNaN(this.velYi) && !isNaN(this.velTi)) {
+      ans = Math.asin(this.velYi / this.velTi);
+    } else {
+      ans = this.msg;
+    }
   }
 
   solveDistanceX(t) {
@@ -239,6 +270,65 @@ class Obj {
     return ans;
   }
 
-  
+  solveAccelerationY() {
+    var ans;
+    if (!isNaN(this.velYi) && !isNaN(this.velYf)) {
+      ans = (this.velYf - this.velYi) / t;
+    } else if (!isNaN(this.Fty) && !isNaN(this.m)) {
+      ans = this.Fty / this.m;
+    } else {
+      ans = this.msg;
+    }
+    return ans;
+  }
+
+  solveForceTotalY() {
+    var ans;
+    if (!isNaN(this.m) && !isNaN(this.aY)){
+      ans = this.m * this.aY;
+    } else {
+      ans = this.msg;
+    }
+    return ans;
+  }
+
+  solveDistanceT(t) {
+    var ans;
+    if (!isNaN(this.distX) && !isNaN(this.distY)){
+      ans = Math.sqrt(Math.pow(2, this.distX) + Math.pow(2, this.distY));
+    }
+  }
+
+  solveVelocityTi() {
+    var ans
+    if (!isNaN(this.velXi) && !isNaN(this.velYi)){
+      ans = Math.sqrt(Math.pow(2, this.velXi) + Math.pow(2, this.velYi));
+    } else if (!isNaN(this.la) && !isNaN(this.velXi)) {
+      ans = this.velXi / Math.cos(this.la);
+    } else {
+      ans = this.msg;
+    }
+    return ans;
+  }
+
+  solveVelocityTf() {
+    var ans;
+    if (!isNaN(this.velXf) && !isNaN(this.velYf)){
+      ans = Math.sqrt(Math.pow(2, this.velXf) + Math.pow(2, this.velYi));
+    } else {
+      ans = this.msg;
+    }
+    return ans;
+  }
+
+  solveVelocityTa(t){
+    var ans;
+    if (!isNaN(this.distX) && !isNaN(this.distY) && !isNaN(t)){
+      ans = (Math.sqrt(Math.pow(2, this.distX) + Math.pow(2, this.distY))) / t;
+    } else {
+      ans = this.msg;
+    }
+    return ans;
+  }
 
 }
